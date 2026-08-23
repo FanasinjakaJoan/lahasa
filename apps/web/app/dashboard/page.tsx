@@ -72,11 +72,11 @@ export default function Dashboard() {
               </div>
             </CardHeader>
             <CardContent>
-              {pending.length === 0 ? <div className="text-sm text-slate-500 py-8 text-center">Aucune file d'attente</div> : (
+              {pending.length === 0 ? <div className="text-sm text-slate-500 py-8 text-center">Aucune file d&apos;attente</div> : (
                 <div className="space-y-3">
                   {pending.map((p:any) => (
                     <div key={p.id} className="flex gap-3 items-center rounded-xl border border-slate-200 p-3">
-                      <img src={p.base64Preview} className="h-12 w-12 rounded-lg object-cover bg-slate-50" />
+                      <img src={p.base64Preview} alt="Aperçu de la CIN" className="h-12 w-12 rounded-lg object-cover bg-slate-50" />
                       <div className="flex-1 min-w-0"><div className="text-sm font-medium truncate">{p.fileName}</div><div className="text-xs text-slate-500">{new Date(p.createdAt).toLocaleString()} • {p.status}</div></div>
                       <Badge className={p.status==='queued' ? 'bg-amber-50 text-amber-700' : 'bg-slate-100'}>{p.status}</Badge>
                     </div>
@@ -93,7 +93,7 @@ export default function Dashboard() {
                 <div className="space-y-2 max-h-[360px] overflow-auto">
                   {local.map((r:any) => (
                     <div key={r.id} className="flex gap-3 items-center rounded-xl border border-slate-200 p-3">
-                      <img src={r.qr_base64} className="h-10 w-10 rounded-lg" />
+                      <img src={r.qr_base64} alt="QR code" className="h-10 w-10 rounded-lg" />
                       <div className="flex-1"><div className="text-sm font-medium">{r.lh_id} — {r.data.nom}</div><div className="text-xs text-slate-500">{r.data.numero_cin} • {new Date(r.createdAt).toLocaleString()}</div></div>
                       <Badge className={r.synced ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'}>{r.synced ? 'sync' : 'local'}</Badge>
                     </div>

@@ -19,14 +19,11 @@ def generate_qr_payload(lh_id: str, numero_cin: str, nom: str) -> str:
     """Génère payload QR signé HMAC"""
     # Payload minimal + signature pour vérif offline
     timestamp = int(datetime.utcnow().timestamp())
-    data = f"{lh_id}|{numero_cin}|{nom}|{timestamp}"
-    sig = hmac.new(
-        settings.QR_SECRET.encode(),
-        data.encode(),
-        hashlib.sha256
-    ).hexdigest()[:16]
-    # Format vérifiable: LAHASA:v1:lh_id:cin_hash:sig:ts
-    cin_hash = hashlib.sha256(numero_cin.encode()).hexdigest()[:8]
+    # Do not put the CIN or name in the QR payload. Sign the public identifier,
+    # its one-way CIN hash, and timestamp so verification works offline.
+    cin_hash = hashlib.sha256(''.join(c for c in numero_cin if c.isdigit()).encode()).hexdigest()[:8]
+    data = f"{lh_id}|{cin_hash}|{timestamp}"
+    sig = hmac.new(settings.QR_SECRET.encode(), data.encode(), hashlib.sha256).hexdigest()[:16]
     return f"LAHASA:v1:{lh_id}:{cin_hash}:{sig}:{timestamp}"
 
 def generate_qr_base64(payload: str) -> str:
@@ -50,13 +47,16 @@ def generate_qr_base64(payload: str) -> str:
     return f"data:image/png;base64,{b64}"
 
 def verify_qr_payload(payload: str) -> bool:
-    """Vérifie signature QR (pour usage futur)"""
+    """Vérifie réellement la signature HMAC du QR, sans révéler de PII."""
     try:
         parts = payload.split(":")
-        if len(parts) < 6 or parts[0] != "LAHASA":
+        if len(parts) != 6 or parts[0] != "LAHASA" or parts[1] != "v1":
             return False
-        # Re-calcul signature si on a données complètes
-        # Pour MVP on vérifie juste format
-        return True
-    except:
+        _, _, lh_id, cin_hash, signature, timestamp = parts
+        if not lh_id.startswith("LH-") or len(cin_hash) != 8 or not timestamp.isdigit():
+            return False
+        data = f"{lh_id}|{cin_hash}|{timestamp}"
+        expected = hmac.new(settings.QR_SECRET.encode(), data.encode(), hashlib.sha256).hexdigest()[:16]
+        return hmac.compare_digest(signature, expected)
+    except (TypeError, ValueError):
         return False

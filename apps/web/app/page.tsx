@@ -66,7 +66,7 @@ export default function Home() {
               </div>
               <h1 className="mt-6 text-5xl md:text-6xl font-bold tracking-tight leading-[0.95]">
                 Collecte<br />
-                <span className="text-slate-400">d'identité</span><br />
+                <span className="text-slate-400">d&apos;identité</span><br />
                 en 3 clics.
               </h1>
               <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-[48ch]">
@@ -103,7 +103,7 @@ export default function Home() {
                     <div className="rounded-2xl border-2 border-dashed border-slate-200 p-8 text-center bg-slate-50">
                       <div className="mx-auto h-14 w-14 rounded-xl bg-slate-900 text-white grid place-items-center mb-3"><ScanLine /></div>
                       <div className="font-medium">Glissez votre CIN ici</div>
-                      <div className="text-xs text-slate-500 mt-1">JPG, PNG jusqu'à 10MB</div>
+                      <div className="text-xs text-slate-500 mt-1">JPG, PNG jusqu&apos;à 10MB</div>
                     </div>
 
                     <div className="mt-6 space-y-3">

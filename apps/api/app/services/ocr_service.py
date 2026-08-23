@@ -11,15 +11,18 @@ from datetime import date, datetime
 from typing import Tuple, Optional, Dict, Any
 import io
 import os
+import shutil
 
 from ..core.config import settings
 
-# Try import tesseract, fallback gracefully
+# Try import tesseract, fallback gracefully. Availability must include the binary,
+# otherwise /health reports a working engine when local installs do not have it.
 try:
     import pytesseract
-    TESSERACT_AVAILABLE = True
-    if settings.TESSERACT_CMD and os.path.exists(settings.TESSERACT_CMD):
-        pytesseract.pytesseract.tesseract_cmd = settings.TESSERACT_CMD
+    tesseract_path = settings.TESSERACT_CMD or shutil.which('tesseract')
+    TESSERACT_AVAILABLE = bool(tesseract_path and (os.path.exists(tesseract_path) or shutil.which(tesseract_path)))
+    if TESSERACT_AVAILABLE:
+        pytesseract.pytesseract.tesseract_cmd = tesseract_path
 except ImportError:
     TESSERACT_AVAILABLE = False
 

@@ -7,9 +7,12 @@
     "packages/*"
   ],
   "scripts": {
-    "dev:api": "cd apps/api && .venv/bin/uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
-    "dev:web": "cd apps/web && npm run dev",
-    "build": "cd apps/web && npm run build",
-    "docker:up": "docker-compose up --build"
+    "install": "python3 -m venv apps/api/.venv && apps/api/.venv/bin/pip install -r apps/api/requirements-dev.txt && npm ci",
+    "dev:api": "apps/api/.venv/bin/python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:web": "npm --prefix apps/web run dev",
+    "build": "npm --prefix apps/web run build",
+    "lint": "npm --prefix apps/web run lint",
+    "test": "apps/api/.venv/bin/python -m pytest apps/api/tests -q",
+    "docker:up": "docker compose up --build"
   }
 }

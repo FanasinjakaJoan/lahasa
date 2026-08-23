@@ -115,10 +115,10 @@ export default function CapturePage() {
               <WifiOff className="h-5 w-5 text-amber-600 mt-0.5" />
               <div>
                 <div className="font-semibold text-amber-900">{t('capture.offlineQueued')}</div>
-                <div className="text-sm text-amber-700 mt-1">L'image est sauvegardée localement. Elle sera synchronisée automatiquement dès le retour de la connexion.</div>
+                <div className="text-sm text-amber-700 mt-1">L&apos;image est sauvegardée localement. Elle sera synchronisée automatiquement dès le retour de la connexion.</div>
                 <div className="mt-3 flex gap-2">
                   <Button size="sm" variant="outline" onClick={() => { setPreview(null); setLastResult(null) }}>Nouvelle capture</Button>
-                  <Link href="/dashboard"><Button size="sm" variant="secondary">Voir file d'attente</Button></Link>
+                  <Link href="/dashboard"><Button size="sm" variant="secondary">Voir file d&apos;attente</Button></Link>
                 </div>
               </div>
             </div>

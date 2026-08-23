@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import { OfflineSync } from '@/components/OfflineSync'
 
 export const metadata: Metadata = {
   title: 'Lahasa — Collecte CIN',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <body className="min-h-screen">
+        <OfflineSync />
         {children}
       </body>
     </html>

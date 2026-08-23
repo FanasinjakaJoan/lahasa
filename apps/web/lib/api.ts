@@ -1,4 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || ''
 
 export interface ExtractionResult {
   id: string
@@ -32,26 +32,24 @@ export interface ExtractionResult {
   created_at: string
 }
 
+async function apiFetch(path: string, init?: RequestInit) {
+  return fetch(`${API_BASE}/api/v1/cin${path}`, init)
+}
+
 export async function extractCIN(file: File, useMock = false): Promise<ExtractionResult> {
   const form = new FormData()
   form.append('front_image', file)
   form.append('use_mock', String(useMock))
-
-  const res = await fetch(`${API_BASE}/api/v1/cin/extract`, {
-    method: 'POST',
-    body: form,
-  })
-
+  const res = await apiFetch('/extract', { method: 'POST', body: form })
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: res.statusText }))
     throw new Error(err.detail || `Erreur API ${res.status}`)
   }
-
   return res.json()
 }
 
-export async function validateCIN(id: string, data: any) {
-  const res = await fetch(`${API_BASE}/api/v1/cin/validate/${id}`, {
+export async function validateCIN(id: string, data: unknown) {
+  const res = await apiFetch(`/validate/${encodeURIComponent(id)}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -61,7 +59,7 @@ export async function validateCIN(id: string, data: any) {
 }
 
 export async function listRecords() {
-  const res = await fetch(`${API_BASE}/api/v1/cin/records`)
+  const res = await apiFetch('/records')
   if (!res.ok) throw new Error('List failed')
   return res.json()
 }

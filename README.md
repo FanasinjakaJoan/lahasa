@@ -88,38 +88,47 @@ CINRecord {
 ## 🚀 Démarrage rapide
 
 ### Prérequis
-- Node.js 20+, pnpm
-- Python 3.11+, Docker
+- Node.js 20+
+- Python 3.11+
+- Docker (optionnel)
+
+### Installation automatisée (recommandée)
+
+Depuis la racine du dépôt, une seule commande prépare l'environnement Python et les workspaces Node :
+
+```bash
+cp .env.example apps/api/.env
+make install
+# ou : npm install
+```
+
+`make install` crée `apps/api/.venv`, installe aussi les dépendances de test et utilise le lockfile racine reproductible.
 
 ### 1. Backend API
 
 ```bash
-cd apps/api
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-# Optionnel: installer tesseract
-# brew install tesseract # macOS / apt install tesseract-ocr -y
-cp .env.example .env
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-# Docs: http://localhost:8000/docs
+make api # http://localhost:8000/docs
+# Optionnel: installer tesseract pour l'OCR réel
+# brew install tesseract # macOS / apt install tesseract-ocr tesseract-ocr-fra -y
 ```
 
 ### 2. Frontend Web
 
 ```bash
-cd apps/web
-pnpm install
-pnpm dev # http://localhost:3000
+make web # http://localhost:3000
 ```
+
+Les appels du navigateur passent par le proxy Next.js (`/api`) : aucune URL `localhost` n'est codée dans le client, ce qui évite les erreurs sur mobile, Docker et les previews distantes.
 
 ### 3. Full stack Docker
 
 ```bash
-docker-compose up --build
+docker compose up --build
 # web: http://localhost:3000
 # api: http://localhost:8000
-# minio: http://localhost:9001
 ```
+
+Le web utilise `http://api:8000` entre conteneurs et conserve des URLs relatives côté navigateur.
 
 ### 4. App Mobile (Expo)
 
