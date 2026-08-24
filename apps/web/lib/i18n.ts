@@ -1,7 +1,7 @@
 'use client'
 import { create } from 'zustand'
-import fr from '../../../packages/shared/i18n/fr.json'
-import mg from '../../../packages/shared/i18n/mg.json'
+import fr from '../public/i18n/fr.json'
+import mg from '../public/i18n/mg.json'
 
 type Lang = 'fr' | 'mg'
 type Dict = typeof fr

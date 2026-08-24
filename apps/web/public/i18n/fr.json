@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "Lahasa",
+    "tagline": "Collecte d'identité simplifiée",
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "validate": "Valider",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "search": "Rechercher",
+    "sync": "Synchroniser",
+    "offline": "Mode hors-ligne",
+    "online": "Connecté",
+    "error": "Erreur",
+    "success": "Succès"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "capture": "Numériser CIN",
+    "history": "Historique",
+    "settings": "Paramètres"
+  },
+  "capture": {
+    "title": "Numériser une Carte d'Identité",
+    "subtitle": "Prenez une photo ou importez une image de CIN",
+    "dragDrop": "Glissez votre image ici ou cliquez pour parcourir",
+    "takePhoto": "Prendre une photo",
+    "uploading": "Analyse en cours...",
+    "supported": "JPG, PNG jusqu'à 10MB",
+    "tips": "Conseils pour une bonne capture",
+    "tipsList": [
+      "Assurez-vous que la CIN est bien éclairée",
+      "Évitez les reflets et les ombres",
+      "Cadrez toute la carte",
+      "Image nette et lisible"
+    ],
+    "offlineQueued": "Image mise en file d'attente (hors-ligne)"
+  },
+  "validate": {
+    "title": "Vérifier les informations extraites",
+    "subtitle": "Corrigez si nécessaire avant validation",
+    "confidence": "Confiance OCR",
+    "duplicateWarning": "Doublon potentiel détecté",
+    "duplicateDetail": "Un enregistrement avec le même N°CIN existe déjà",
+    "fields": {
+      "numero_cin": "Numéro CIN",
+      "nom": "Nom",
+      "prenoms": "Prénoms",
+      "date_naissance": "Date de naissance",
+      "lieu_naissance": "Lieu de naissance",
+      "sexe": "Sexe",
+      "adresse": "Adresse",
+      "date_emission": "Date d'émission",
+      "lieu_emission": "Lieu d'émission"
+    },
+    "generateQR": "Générer QR Code",
+    "validated": "Identité validée avec succès",
+    "lhId": "Identifiant Lahasa"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "today": "Aujourd'hui",
+    "totalScanned": "CIN scannées",
+    "pending": "En attente",
+    "validated": "Validées",
+    "duplicates": "Doublons",
+    "recent": "Activité récente",
+    "offlineQueue": "File d'attente hors-ligne"
+  },
+  "qr": {
+    "title": "QR Code d'identité",
+    "subtitle": "Identifiant unique généré",
+    "download": "Télécharger",
+    "print": "Imprimer",
+    "share": "Partager"
+  }
+}

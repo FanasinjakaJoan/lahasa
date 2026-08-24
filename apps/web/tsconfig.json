@@ -17,7 +17,8 @@
     "paths": {
       "@/*": ["./*"],
       "@/components/*": ["./components/*"],
-      "@/lib/*": ["./lib/*"]
+      "@/lib/*": ["./lib/*"],
+      "@/shared/*": ["../../packages/shared/*"]
     },
     "baseUrl": "."
   },

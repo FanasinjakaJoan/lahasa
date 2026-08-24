@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "Lahasa",
+    "tagline": "Fanangonana kara-panondro tsotsotra",
+    "loading": "Miandry...",
+    "save": "Tehirizo",
+    "cancel": "Afoizo",
+    "validate": "Hamarino",
+    "edit": "Ovay",
+    "delete": "Fafao",
+    "search": "Karohy",
+    "sync": "Ampifanaraho",
+    "offline": "Tsy anaty tambajotra",
+    "online": "Mifandray",
+    "error": "Hadisoana",
+    "success": "Vita"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "capture": "Haka Kara-panondro",
+    "history": "Tantara",
+    "settings": "Fikirana"
+  },
+  "capture": {
+    "title": "Haka sary Kara-panondro",
+    "subtitle": "Maka sary na ampidiro ny sarin'ny CIN",
+    "dragDrop": "Tariho eto ny sary na tsindrio hijerena",
+    "takePhoto": "Maka sary",
+    "uploading": "Mamakafaka...",
+    "supported": "JPG, PNG hatramin'ny 10MB",
+    "tips": "Torohevitra ho sary tsara",
+    "tipsList": [
+      "Ataovy mazava tsara ny CIN",
+      "Aza misy taratra",
+      "Alao sary manontolo ny karatra",
+      "Sary mazava sy azo vakina"
+    ],
+    "offlineQueued": "Voatahiry (tsy anaty tambajotra)"
+  },
+  "validate": {
+    "title": "Hamarino ny vaovao nalaina",
+    "subtitle": "Ahitsio raha ilaina alohan'ny fanamarinana",
+    "confidence": "Fahatokisana OCR",
+    "duplicateWarning": "Misy dika mitovy hita",
+    "duplicateDetail": "Efa misy kara-panondro mitovy laharana",
+    "fields": {
+      "numero_cin": "Laharana CIN",
+      "nom": "Anarana",
+      "prenoms": "Fanampiny",
+      "date_naissance": "Daty nahaterahana",
+      "lieu_naissance": "Toerana nahaterahana",
+      "sexe": "Lahy/Vavy",
+      "adresse": "Adiresy",
+      "date_emission": "Daty namoahana",
+      "lieu_emission": "Toerana namoahana"
+    },
+    "generateQR": "Mamorona QR Code",
+    "validated": "Voamarina soa aman-tsara",
+    "lhId": "Lahasa ID"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "today": "Anio",
+    "totalScanned": "CIN nalaina",
+    "pending": "Miandry",
+    "validated": "Voamarina",
+    "duplicates": "Dika mitovy",
+    "recent": "Hetsika farany",
+    "offlineQueue": "Filaharana tsy anaty tambajotra"
+  },
+  "qr": {
+    "title": "QR Code maha-izy azy",
+    "subtitle": "Laharana tokana voaforona",
+    "download": "Alaina",
+    "print": "Atonta printy",
+    "share": "Zarao"
+  }
+}
