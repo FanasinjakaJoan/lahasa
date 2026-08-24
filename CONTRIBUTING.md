@@ -5,6 +5,7 @@
 1. `git checkout -b feat/ma-feature`
 2. Code + tests
 3. `npm run build` dans apps/web doit passer
+3bis. Tests API : `cd apps/api && pip install -r requirements-dev.txt && pytest`
 4. `curl http://localhost:8000/api/v1/cin/health` OK
 5. PR vers main
 
