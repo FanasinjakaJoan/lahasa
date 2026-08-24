@@ -27,8 +27,8 @@ except ImportError:
 CIN_PATTERNS = {
     "numero": re.compile(r'(\d{3}\s?\d{3}\s?\d{3}\s?\d{3}|\d{12})'),
     "date": re.compile(r'(\d{2}[\/\-]\d{2}[\/\-]\d{4})'),
-    "nom": re.compile(r'(?:Anarana|Nom)\s*[:\-]?\s*([A-ZÀ-Ÿ\s\-\']{2,})', re.I),
-    "prenoms": re.compile(r'(?:Fanampiny|Pr[ée]noms?)\s*[:\-]?\s*([A-Za-zÀ-ÿ\s\-\']{2,})', re.I),
+    "nom": re.compile(r'(?:Anarana|Nom)[ \t]*[:\-]?[ \t]*([A-ZÀ-Ÿ \t\-\']{2,})', re.I),
+    "prenoms": re.compile(r'(?:Fanampiny|Pr[ée]noms?)[ \t]*[:\-]?[ \t]*([A-Za-zÀ-ÿ \t\-\']{2,})', re.I),
     "lieu": re.compile(r'(?:Teraka|N[ée] le|Ao|à)\s*([A-Z][a-z]+(?:\s[A-Z][a-z]+)*)', re.I),
 }
 
